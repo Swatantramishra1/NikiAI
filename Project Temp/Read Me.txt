@@ -1,0 +1,21 @@
+Hi ,
+
+This is Swatantra , Thanks for this .
+According your assignment i tried to make it same please find attachment .
+
+Process -
+
+1-First programm is written with C# 
+  a- It will ask what you want to enter means (List,Array or Table )
+  b- After this it will ask No of string
+  c- Output- It will sort according to Length of each string.
+  
+2-Technologies used in WebApp (Feed Reader) 
+  a-Html
+  b-Angular
+  c-Javascript
+  d-Twitter Bootsrtap
+
+ In WebApp- 
+We have enter URL and if URL is valid then it will show related data otherwise it will show message .
+Right side as your requirement ISO Time and Time Spent once user will Open Page .

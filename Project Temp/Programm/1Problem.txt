@@ -1,0 +1,88 @@
+try
+            {
+                Console.WriteLine("Please Select Type which you want to Test - List( 1 ),Array( 2 ) & for Table( 3 )");
+                int Type = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+                Console.WriteLine("Please Enter No Of String , do you want to enter ?");
+                Console.WriteLine();
+ 
+                int N = Convert.ToInt32(Console.ReadLine());
+                string[] Input_String = new string[N];
+                List<string> List_Input = new List<string>();
+ 
+ 
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Input_String", typeof(string));
+ 
+ 
+ 
+ 
+ 
+                for (int i = 0; i < N; i++)
+                {
+ 
+                    if (Type == 1)
+                    {
+                        List_Input.Add(Console.ReadLine());
+                    }
+                    else if (Type == 2)
+                    {
+                        Input_String[i] = Console.ReadLine();
+                    }
+                    else
+                    {
+                        DataRow dtrow = dt.NewRow();
+                        dtrow["Input_String"] = Console.ReadLine();
+                        dt.Rows.Add(dtrow);
+                    }
+ 
+                }
+                if (Type == 1)
+                {
+                    List_Input.Sort((a, b) => a.Length.CompareTo(b.Length));
+                }
+                else if (Type == 2)
+                {
+                    Array.Sort(Input_String, (x, y) => x.Length.CompareTo(y.Length));
+                }
+                else
+                {
+                    DataView dv = dt.DefaultView;
+                    dv.Sort = "Input_String asc";
+                    dt = dv.ToTable();
+                }
+                Console.WriteLine();
+                Console.WriteLine("Here are Ouput -  Sort by Length Each Input");
+                Console.WriteLine();
+                if (Type == 1)
+                {
+                    foreach (string s in List_Input)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+                else if (Type == 2)
+                {
+                    foreach (string s in Input_String)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+                else
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        foreach (DataColumn column in dt.Columns)
+                        {
+                            Console.WriteLine(row[column.ColumnName]);
+                        }
+                    }
+                }
+            }
+ 
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception - " + ex.Message);
+            }
+            Console.ReadLine();
+ 
